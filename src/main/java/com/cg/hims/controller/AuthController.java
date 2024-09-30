@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.cg.hims.Entities.User;
 import com.cg.hims.Exceptions.InvalidCredentialsException;
 import com.cg.hims.authentication.entity.AuthenticationRequestDTO;
 import com.cg.hims.authentication.entity.AuthenticationResponseDTO;
