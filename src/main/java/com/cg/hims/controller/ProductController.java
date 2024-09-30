@@ -30,7 +30,7 @@ public class ProductController
   {
     
 	@Autowired
-	IProductServiceimpl Proserviceobj;
+	IProductServiceimpl proServiceObj;
     
 /************************************************************************************************/
 	
