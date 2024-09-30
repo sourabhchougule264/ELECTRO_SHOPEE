@@ -39,7 +39,7 @@ public class ProductController
 	@GetMapping(path = "/viewAllProducts")
 	public ResponseEntity<List<Product>> viewAllProducts()
 	{  
-		List<Product> productImpl=Proserviceobj.viewAllProducts();
+		List<Product> productImpl=proServiceObj.viewAllProducts();
 		if(productImpl.isEmpty())
 		{
 			return new ResponseEntity("product not found",HttpStatus.NOT_FOUND); 
@@ -56,7 +56,7 @@ public class ProductController
 		{
 			return new ResponseEntity("Invalid Id",HttpStatus.NOT_FOUND);
 		}
-		Product proImpl=Proserviceobj.addProduct(product);
+		Product proImpl=proServiceObj.addProduct(product);
 		
 		return new ResponseEntity(proImpl,HttpStatus.OK);
 
@@ -70,7 +70,7 @@ public class ProductController
 	      {
 		     return new ResponseEntity("Enter valid product details",HttpStatus.NOT_FOUND);
 	      }
-	Product prod=Proserviceobj.updateProduct(id, product);
+	Product prod=proServiceObj.updateProduct(id, product);
 		return new ResponseEntity(prod,HttpStatus.OK);	
 	}
 /************************************************************************************************/
@@ -79,7 +79,7 @@ public class ProductController
 	@GetMapping("/viewProduct/{id}")
 	public ResponseEntity<Optional<Product>> viewProduct(@PathVariable ("id") int id) throws ProductNotFoundException
 	{   
-		Optional<Product> productIn=Proserviceobj.viewProduct(id);
+		Optional<Product> productIn=proServiceObj.viewProduct(id);
 		if(productIn==null)
 		{
 			return new ResponseEntity("Enter valid Id",HttpStatus.NOT_FOUND);
@@ -93,7 +93,7 @@ public class ProductController
 	@GetMapping("/viewAllProductByCategory/{categoryName}")
 	public ResponseEntity<List<Product>> viewAllProductByCategory(@PathVariable("categoryName") String cname)
 	{
-		List<Product> productImpl=Proserviceobj.viewAllProductByCategory(cname);
+		List<Product> productImpl=proServiceObj.viewAllProductByCategory(cname);
 		if(productImpl.isEmpty())
 		{
 			return new ResponseEntity("Products not found",HttpStatus.NOT_FOUND);
@@ -106,7 +106,7 @@ public class ProductController
 	@DeleteMapping("/removeProduct/{id}")
 	public ResponseEntity<Product> removeProduct(@PathVariable("id") int pid) throws ProductNotFoundException
 	{	
-		int productdel=Proserviceobj.removeProduct(pid);
+		int productdel=proServiceObj.removeProduct(pid);
 		return new ResponseEntity(productdel,HttpStatus.OK);
 	}
 }
