@@ -19,9 +19,6 @@ public interface IOrderRepository extends JpaRepository<Order, Integer>
 	@Modifying
     @Query("Delete from Order o where o.orderid=:d")
 	public int deleteById(@Param("d") int Oid);
-    
-//  @Query("select o from Order o where o.orderid=:f")
-//	public Order findOrderById(@Param("f") Order order);
 
     @Query("select o from Order o where o.orderDate =:g")
 	public List<Order> findAllByDate(@Param("g") LocalDate date);

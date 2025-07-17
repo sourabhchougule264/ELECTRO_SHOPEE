@@ -4,7 +4,6 @@ package com.cg.hims.Service;
  * DATE=27/11/2021
  * DESCRIPTION= SIGN UP SERVICE LAYER
  */
-import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -24,7 +23,7 @@ public class ISignUpServiceImpl implements ISignUpService {
 	/***********************************************************************************************************/
 	@Override
 	public User addUser(User user) {
-		// TODO Auto-generated method stub
+
 		User add_user = new User();
 		add_user.setUserid(user.getUserid());
 		add_user.setPassword(user.getPassword());
@@ -37,7 +36,7 @@ public class ISignUpServiceImpl implements ISignUpService {
 	/***********************************************************************************************************/
 	@Override
 	public void removeUser(User user) throws UserNotFoundException {
-		// TODO Auto-generated method stub
+
 		if (!log_repo.existsById(user.getUserid())) {
 			throw new UserNotFoundException("unable to remove,enter valid id");
 		}

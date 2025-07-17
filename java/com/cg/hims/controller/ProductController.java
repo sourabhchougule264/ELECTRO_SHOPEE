@@ -34,8 +34,7 @@ public class ProductController
     
 /************************************************************************************************/
 	
-     //view All Products list
-    
+     //view All Products list    
 	@GetMapping(path = "/viewAllProducts")
 	public ResponseEntity<List<Product>> viewAllProducts()
 	{  

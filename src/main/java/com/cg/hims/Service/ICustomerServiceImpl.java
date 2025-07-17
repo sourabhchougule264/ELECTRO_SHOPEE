@@ -25,7 +25,6 @@ public class ICustomerServiceImpl implements ICustomerService{
 /****************************************************************************************************************/
 	@Override
 	public Customer addCustomer(Customer cust) {
-		// TODO Auto-generated method stub
 		Customer cust_addCustomer=new Customer();
 		cust_addCustomer.setCustomerid(cust.getCustomerid());
 		cust_addCustomer.setFirstName(cust.getFirstName());
@@ -38,7 +37,6 @@ public class ICustomerServiceImpl implements ICustomerService{
 /****************************************************************************************************************/
 	@Override
 	public Customer updateCustomer(int id,Customer cust) throws CustomerNotFound{
-		// TODO Auto-generated method stub
 		Customer cust_addCustomer=cust_Repo.findById(id).orElseThrow(()-> new CustomerNotFound("Customer id not matched"));
 		cust_addCustomer.setCustomerid(cust.getCustomerid());
 		cust_addCustomer.setFirstName(cust.getFirstName());
@@ -47,10 +45,6 @@ public class ICustomerServiceImpl implements ICustomerService{
 		cust_addCustomer.setEmail(cust.getEmail());
 		cust_addCustomer.setAddress(cust.getAddress());
 		cust_addCustomer.setCart(cust.getCart());
-		
-//		if (!cust_Repo.existsById(cust.getCustomerid())) {
-//			throw new CustomerNotFound("Oops!!!,unable to update,please enter valid id");
-//		}
 		cust_addCustomer=cust_Repo.save(cust);
 		return cust_addCustomer;
 	}
@@ -58,11 +52,6 @@ public class ICustomerServiceImpl implements ICustomerService{
 /****************************************************************************************************************/
 	@Override
 	public int removeCustomer(int Cid ,Customer cust) throws CustomerNotFound {
-		// TODO Auto-generated method stub
-//		if (!cust_Repo.existsById(cust.getCustomerid())) 
-//		{
-//			throw new CustomerNotFound("Oops!!!,unable to remove,please enter valid id");
-//		}
 		 cust_Repo.deleteById(Cid);
 		 return 1;
 	}
@@ -71,19 +60,12 @@ public class ICustomerServiceImpl implements ICustomerService{
 	@Override
 	public Customer viewCustomer(int Cid,Customer cust) throws CustomerNotFound
 	{
-		// TODO Auto-generated method stub
-//		if (!cust_Repo.existsById(cust.getCustomerid())) 
-//		{
-//			throw new CustomerNotFound("Oops!!!,customer not found please enter valid id");
-//		}
 		return cust_Repo.viewCustomer(Cid);
 	}
 
 /****************************************************************************************************************/
 	@Override
 	public List<Customer> viewAllCustomers(String location) {
-		// TODO Auto-generated method stub
-		
 		List<Customer> view_all=cust_Repo.findAllCustomers(location);
 		return view_all;
 	}

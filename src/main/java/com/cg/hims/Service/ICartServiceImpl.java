@@ -37,16 +37,11 @@ public class ICartServiceImpl implements ICartService{
 		cart=cart_repo.findById(cartid).get();
 		 if(cart.getProduct().isEmpty())
 		 {		 
-			// p.setSelectedQuantity(cart.getpQuant());
-			 //kList.add(p);
 			 cart.getProduct().add(p);
 			 
 		 }
 		 else if (!cart.getProduct().contains(p)) 
 			 {
-				 //cart.setCartid(cart.getCartid());
-				 //p.setSelectedQuantity(cart.getpQuant());
-				// kList.add(p);
 				 cart.getProduct().add(p);
 			 }
 			 else {
@@ -54,49 +49,6 @@ public class ICartServiceImpl implements ICartService{
 			 	  }
 			 Cart addprodtoCart = cart_repo.save(cart);
 			 return addprodtoCart;
-		 
-		 
-/*******************************************************************************************************************************************************************/
-//			if (!kList.contains(p))
-//			{ p=new Product();
-//				p=pro_repo.findById(productid).orElseThrow(()-> new ProductNotFoundException("Product you are searching ic currently unavailable....!!!"));
-//				kList.add(p);
-//			}
-		 
-//	   boolean isPresent= false;
-//		 for(int i=1;i<=kList.size();i++)
-//		 { 		p=pro_repo.findById(productid).orElseThrow(()-> new ProductNotFoundException("Product you are searching ic currently unavailable....!!!"));	
-//		 			if (!cart.getProduct().contains(p)) 
-//		 			{
-//		                kList.set(i, p);	
-//						isPresent=true;
-//						return cart;		    
-//		            }
-//		 			
-//		 }
-//		 if (isPresent=true) 
-//			{
-//				kList.add(p);
-//				cart.setProduct(kList);
-//			}
-//			Cart addPtoC = cart_repo.save(cart);
-//		 return addPtoC;
-			 
-/***********************************************************************************************************************************************************/		 
-		 
-//		 p=pro_repo.findById(productid).orElseThrow(()->  new ProductNotFoundException("Product you are searching ic currently unavailable....!!!") );		 
-//		 
-//			 new Product();
-//			p=pro_repo.findById(productid).orElseThrow(()->  new ProductNotFoundException("Product you are searching ic currently unavailable....!!!") );
-//			 kList.add(p);
-//			 cart.setProduct(kList);
-//		 
-//		 Cart addProdCart = cart_repo.save(cart);
-//		 
-//		 return addProdCart;
-		 
-		 
-		 
 	}
 
 /*********************************************************************************************************************************************************/
@@ -127,8 +79,7 @@ public class ICartServiceImpl implements ICartService{
 
 /*********************************************************************************************************************************************************/
 	@Override
-	public String removeAllProducts(int cartid,Cart cart) {
-		// TODO Auto-generated method stub		
+	public String removeAllProducts(int cartid,Cart cart) {		
 		cart_repo.removeAllProducts(cartid);
 		return "cart is empty now";
 	}
@@ -136,7 +87,6 @@ public class ICartServiceImpl implements ICartService{
 /*********************************************************************************************************************************************************/
 	@Override
 	public ArrayList<Cart> viewAllProducts(int cartid) {
-		// TODO Auto-generated method stub
 		ArrayList<Cart> cartListAll=cart_repo.viewAllProducts(cartid);
 		return cartListAll;
 	}

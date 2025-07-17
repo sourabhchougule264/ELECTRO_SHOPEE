@@ -27,7 +27,6 @@ public class IProductServiceimpl implements IProductService {
 
 	@Override
 	public List<Product> viewAllProducts() {
-		// TODO Auto-generated method stub
 		List<Product> prod_viewlist = pro_repo.findAll();
 		return prod_viewlist;
 	}
@@ -35,7 +34,7 @@ public class IProductServiceimpl implements IProductService {
 	/***********************************************************************************************************/
 	@Override
 	public Product addProduct(Product product) {
-		// TODO Auto-generated method stub
+
 		Product addProd = new Product();
 		addProd.setProductid(product.getProductid());
 		addProd.setProductName(product.getProductName());
@@ -56,13 +55,8 @@ public class IProductServiceimpl implements IProductService {
 	@Override
 	public Product updateProduct(int id, Product product) throws ProductNotFoundException {
 
-//		if (!pro_repo.existsById(product.getProductId()))
-//		{
-//			throw new ProductNotFoundException("Oops...!!! unable to update,please enter valid id");
-//		}
 		Product addProd = pro_repo.findById(id)
 				.orElseThrow(() -> new ProductNotFoundException("Product id doesnt match ...!!!!!!Unable to update"));
-		// addProd.setProductid(product.getProductid());
 		addProd.setProductName(product.getProductName());
 		addProd.setPrice(product.getPrice());
 		addProd.setColor(product.getColor());
@@ -82,7 +76,7 @@ public class IProductServiceimpl implements IProductService {
 	/***********************************************************************************************************/
 	@Override
 	public Optional<Product> viewProduct(int id) throws ProductNotFoundException {
-		// TODO Auto-generated method stub
+
 		if (!pro_repo.existsById(id)) {
 			throw new ProductNotFoundException("Ooops!!! product not found,please Enter valid Id");
 		}
@@ -92,7 +86,7 @@ public class IProductServiceimpl implements IProductService {
 	/***********************************************************************************************************/
 	@Override
 	public List<Product> viewAllProductByCategory(String cname) {
-		// TODO Auto-generated method stub
+
 		List<Product> prod_viewall = pro_repo.findAllProductByCategory(cname);
 
 		return prod_viewall;
@@ -101,7 +95,7 @@ public class IProductServiceimpl implements IProductService {
 	/***********************************************************************************************************/
 	@Override
 	public int removeProduct(int pid) throws ProductNotFoundException {
-		// TODO Auto-generated method stub
+
 		if (!pro_repo.existsById(pid)) {
 			throw new ProductNotFoundException("Unable to delete, please provide valid pid");
 		}

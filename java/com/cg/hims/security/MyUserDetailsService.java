@@ -19,7 +19,7 @@ public class MyUserDetailsService implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		// TODO Auto-generated method stub
+		
 		Optional<User> user = log_repo.findById(username);
 		user.orElseThrow(() -> new UsernameNotFoundException("User Not Found"));
 		return user.map(MyUserDeatils :: new).get();
